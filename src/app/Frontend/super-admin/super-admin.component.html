@@ -1,0 +1,112 @@
+<div class="container">
+
+    <form [formGroup]="userForm">
+        <div class="c1">
+
+            <mat-form-field class="f">
+                <input matInput formControlName="stationeryId" placeholder="Stationery Id">
+            </mat-form-field>
+
+            <mat-form-field class="q">
+                <input matInput formControlName="stationeryName" placeholder="Stationery Name">
+            </mat-form-field>
+
+            <mat-form-field class="q1">
+                <input matInput formControlName="stationeryQty" placeholder="Stationery Quantity">
+            </mat-form-field>
+
+            <mat-form-field class="q2">
+                <input matInput formControlName="stationeryRemark" placeholder="Stationery Remark">
+            </mat-form-field>
+
+            <mat-form-field class="q3">
+                <input matInput formControlName="stationeryDesc" placeholder="Stationery Description">
+            </mat-form-field>
+
+            <mat-form-field class="q4">
+                <!-- <mat-label>Favorite food</mat-label> -->
+                <mat-select formControlName="stationeryStatus" placeholder="Stationery Status">
+                    <mat-option *ngFor="let food of foods" [value]="food.value">
+                        {{food.viewValue}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field class="q5">
+                <input matInput formControlName="stationeryOrderStatus" placeholder="Stationery Order Status">
+            </mat-form-field>
+
+        </div>
+
+        <!-- <div class="c2"> -->
+        <!-- <div class="container1">
+
+            <label class="LID" for="Stationery Item">Stationery Id</label><br>
+            <input type="text" class="SID" name="fname"><br>
+
+            <label class="LName" for="Stationery Item">Stationery Name</label><br>
+            <input type="text" class="SName" name="fname"><br>
+
+            <label class="LQty" for="Stationery Item">Stationery Quantity</label><br>
+            <input type="text" class="SQty" name="fname"><br>
+
+        </div>
+
+        <div class="subContainer">
+
+            <label for="Stationery Item">Stationery Remark</label><br>
+            <input type="text" class="SRemark" name="fname"><br>
+
+            <label for="Stationery Item">Stationery Description</label><br>
+            <input type="text" class="SDes" name="fname"><br>
+
+            <label for="Stationery Item">Stationery Status</label><br>
+            <input type="text" class="SStatus" name="fname"><br>
+
+        </div> -->
+        <!-- </div> -->
+
+        <div>
+            <button class="add" mat-raised-button color="warn" (click)="addRow()">Add</button>
+            <!-- <button class="submit" mat-raised-button color="warn" (click)="reset()">Reset</button> -->
+        </div>
+
+    </form>
+
+    <div class="tab">
+        <table>
+            <th>Stationery Id</th>
+            <th>Stationery Name</th>
+            <th>Stationery Quantity</th>
+            <th>Stationery Remark</th>
+            <th>Stationery Description</th>
+            <th>Stationery Status</th>
+            <th>Stationery Order Status</th>
+
+
+            <tr *ngFor="let item of listData">
+                <td><span>{{item.stationeryId}}</span></td>
+                <td><span>{{item.stationeryName}}</span></td>
+                <!-- <td><button type="button" class="btn1" mat-raised-button color="warn"
+                        (click)="remove(item)">Remove</button></td> -->
+                <td><span>{{item.stationeryQty}}</span></td>
+                <td><span>{{item.stationeryRemark}}</span></td>
+                <td><span>{{item.stationeryDesc}}</span></td>
+                <td><span>{{item.stationeryStatus}}</span></td>
+                <td><span>{{item.stationeryOrderStatus}}</span></td>
+                    <!-- <mat-icon class="del1">delete</mat-icon>
+                    <span class="vertical-line"></span>
+                    <mat-icon class="edit1">edit</mat-icon> -->
+                    <!-- <button class="del">
+                            <mat-icon class="del1">delete</mat-icon>
+                        </button>
+                        <button class="edit">
+                            <mat-icon class="edit1">edit</mat-icon>
+                        </button> -->
+                
+            </tr>
+
+        </table>
+    </div>
+
+</div>
