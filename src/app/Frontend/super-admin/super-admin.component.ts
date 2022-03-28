@@ -42,6 +42,7 @@ export class SuperAdminComponent implements OnInit {
   }
   
   foods: Food[] = [
+    // {value: '', viewValue: ''},
     {value: 'Available', viewValue: 'Available'},
     {value: 'Out of Stock', viewValue: 'Out Of Stock'}
   ];

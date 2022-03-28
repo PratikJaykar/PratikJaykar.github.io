@@ -1,9 +1,10 @@
 <div class="container">
 
     <form [formGroup]="userForm">
-        <div class="c1">
+        <!-- <div class="c1">
 
-            <mat-form-field class="f">
+            <mat-form-field appearance="outline" class="f">
+                <mat-label>Outline form </mat-label>
                 <input matInput formControlName="stationeryId" placeholder="Stationery Id">
             </mat-form-field>
 
@@ -24,7 +25,6 @@
             </mat-form-field>
 
             <mat-form-field class="q4">
-                <!-- <mat-label>Favorite food</mat-label> -->
                 <mat-select formControlName="stationeryStatus" placeholder="Stationery Status">
                     <mat-option *ngFor="let food of foods" [value]="food.value">
                         {{food.viewValue}}
@@ -36,35 +36,34 @@
                 <input matInput formControlName="stationeryOrderStatus" placeholder="Stationery Order Status">
             </mat-form-field>
 
-        </div>
-
-        <!-- <div class="c2"> -->
-        <!-- <div class="container1">
-
-            <label class="LID" for="Stationery Item">Stationery Id</label><br>
-            <input type="text" class="SID" name="fname"><br>
-
-            <label class="LName" for="Stationery Item">Stationery Name</label><br>
-            <input type="text" class="SName" name="fname"><br>
-
-            <label class="LQty" for="Stationery Item">Stationery Quantity</label><br>
-            <input type="text" class="SQty" name="fname"><br>
-
-        </div>
-
-        <div class="subContainer">
-
-            <label for="Stationery Item">Stationery Remark</label><br>
-            <input type="text" class="SRemark" name="fname"><br>
-
-            <label for="Stationery Item">Stationery Description</label><br>
-            <input type="text" class="SDes" name="fname"><br>
-
-            <label for="Stationery Item">Stationery Status</label><br>
-            <input type="text" class="SStatus" name="fname"><br>
-
         </div> -->
-        <!-- </div> -->
+
+        <div class="c2">
+            <div>
+
+                <!-- <input type="text" class="t1" name="fname" formControlName="stationeryId" placeholder="Stationery Id"> -->
+
+                <input type="text" class="t1" name="fname" formControlName="stationeryName" placeholder="Stationery Name">
+
+                <input type="text" class="t2" name="fname" formControlName="stationeryQty" placeholder="Stationery Quantity">
+
+                <input type="text" class="t3" name="fname" formControlName="stationeryRemark" placeholder="Stationery Remark">
+            </div>
+
+            <div>
+
+
+                <input type="text" class="t1" name="fname" formControlName="stationeryDesc" placeholder="Stationery Description">
+
+                <select class="t2" placeholder="Stationery Status" formControlName="stationeryStatus">
+                    <option hidden value="" disabled selected>Stationery Status</option>
+                    <option *ngFor="let food of foods" [value]="food.value">
+                        {{food.viewValue}}
+                    </option>
+                </select>
+
+            </div>
+        </div>
 
         <div>
             <button class="add" mat-raised-button color="warn" (click)="addRow()">Add</button>
@@ -84,28 +83,20 @@
             <th>Stationery Order Status</th>
 
 
-            <tr *ngFor="let item of listData">
-                <td><span>{{item.stationeryId}}</span></td>
+            <tr *ngFor="let item of listData; let i = index"> 
+                <td><span>{{i+1}}</span></td>
                 <td><span>{{item.stationeryName}}</span></td>
-                <!-- <td><button type="button" class="btn1" mat-raised-button color="warn"
-                        (click)="remove(item)">Remove</button></td> -->
                 <td><span>{{item.stationeryQty}}</span></td>
                 <td><span>{{item.stationeryRemark}}</span></td>
                 <td><span>{{item.stationeryDesc}}</span></td>
                 <td><span>{{item.stationeryStatus}}</span></td>
-                <td><span>{{item.stationeryOrderStatus}}</span></td>
-                    <!-- <mat-icon class="del1">delete</mat-icon>
+                <!-- <td><span>{{item.stationeryOrderStatus}}</span></td> -->
+                <td>
+                    <mat-icon class="del1">delete</mat-icon>
                     <span class="vertical-line"></span>
-                    <mat-icon class="edit1">edit</mat-icon> -->
-                    <!-- <button class="del">
-                            <mat-icon class="del1">delete</mat-icon>
-                        </button>
-                        <button class="edit">
-                            <mat-icon class="edit1">edit</mat-icon>
-                        </button> -->
-                
+                    <mat-icon class="edit1">edit</mat-icon> 
+                </td>
             </tr>
-
         </table>
     </div>
 
