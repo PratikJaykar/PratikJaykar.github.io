@@ -1,33 +1,27 @@
-<mat-toolbar class="nav">
-    <div>
-        <a class="navbar-brand" routerLink="" routerLinkActive="active">
-            <img class="img" src="../../../assets/img/logo.png" />
-        </a>
-    </div>
-    <!-- <div class="s1">
-        <a mat-button>Home</a>
-        <a mat-button>Home</a>
-        <a mat-button>Home</a>
-    </div> -->
-</mat-toolbar>
-
-<mat-sidenav-container>
-    <mat-sidenav mode="side" opened>
+ <mat-sidenav-container *ngIf="isLoggedIn$ | async"> 
+    <mat-sidenav mode="side" opened>  
         <ul class="navList">
-            <!-- <li (click)="goto(home)"><i class=""></i>Home</li>
-            <li (click)="goto(home)"><i class=""></i>Home</li>
-            <li (click)="goto(home)"><i class=""></i>Home</li>
-            <li (click)="goto(home)"><i class=""></i>Home</li>
-            <li (click)="goto(home)"><i class=""></i>Home</li> -->
-            <!-- <button mat-icon-button color="warn" aria-label="Example icon button with a home icon">
-                <mat-icon>home</mat-icon> 
-            </button> -->
-        </ul>
-    </mat-sidenav>
+            <li> 
+                <a mat-list-item class="navbar-brand" routerLink="" routerLinkActive="active">
+                    <img class="img" src="../../../assets/img/square-logo.png" />
+                </a>
+            </li> 
 
-    <mat-sidenav-content>
+            <li class="stationery" routerLink="/super-admin">Stationery
+            </li>
+
+            <li class="stReq" routerLink="/staionery-request">Stationery Request
+            </li>
+
+            <li class="logout" (click)="onLogout()">Log Out</li>
+        </ul>
+
+     </mat-sidenav>
+
+     <mat-sidenav-content>
         <div class="container">
-            <app-super-admin></app-super-admin>
+            <!-- <app-super-admin></app-super-admin> -->
+            <router-outlet></router-outlet>
         </div>
-    </mat-sidenav-content>
-</mat-sidenav-container>
+    </mat-sidenav-content> 
+</mat-sidenav-container> 

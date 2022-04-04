@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/service/auth-service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-side-nav',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SideNavComponent implements OnInit {
 
-  constructor() { }
+  isLoggedIn$: Observable<boolean>;
+
+  constructor(private authService: AuthService) { }
 
   ngOnInit() {
+    this.isLoggedIn$ = this.authService.isLoggedIn;
+  }
+
+  onLogout(){
+    this.authService.logout();                      
   }
 
 }

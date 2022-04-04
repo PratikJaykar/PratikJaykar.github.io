@@ -1,8 +1,18 @@
+<!-- <app-side-nav></app-side-nav> -->
+
 <div class="container">
+
+    <h2 style="margin-top: 30px;
+                text-align: center; 
+                background: linear-gradient(to right, #ffa355 300px, #f86779);
+                text-transform: uppercase;
+                background-clip: text;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;">Super Admin Panel</h2>
 
     <form [formGroup]="userForm">
         <!-- <div class="c1">
-
+            
             <mat-form-field appearance="outline" class="f">
                 <mat-label>Outline form </mat-label>
                 <input matInput formControlName="stationeryId" placeholder="Stationery Id">
@@ -19,11 +29,11 @@
             <mat-form-field class="q2">
                 <input matInput formControlName="stationeryRemark" placeholder="Stationery Remark">
             </mat-form-field>
-
+            
             <mat-form-field class="q3">
                 <input matInput formControlName="stationeryDesc" placeholder="Stationery Description">
             </mat-form-field>
-
+            
             <mat-form-field class="q4">
                 <mat-select formControlName="stationeryStatus" placeholder="Stationery Status">
                     <mat-option *ngFor="let food of foods" [value]="food.value">
@@ -31,43 +41,30 @@
                     </mat-option>
                 </mat-select>
             </mat-form-field>
-
+            
             <mat-form-field class="q5">
                 <input matInput formControlName="stationeryOrderStatus" placeholder="Stationery Order Status">
             </mat-form-field>
-
+            
         </div> -->
 
         <div class="c2">
-            <div>
 
-                <!-- <input type="text" class="t1" name="fname" formControlName="stationeryId" placeholder="Stationery Id"> -->
+            <mat-form-field class="q" >
+                <input matInput formControlName="stationeryName" placeholder="Stationery Name" >
+            </mat-form-field>
 
-                <input type="text" class="t1" name="fname" formControlName="stationeryName" placeholder="Stationery Name">
+            <mat-form-field class="q1">
+                <input matInput formControlName="stationeryQty" placeholder="Stationery Quantity" >
+            </mat-form-field>
 
-                <input type="text" class="t2" name="fname" formControlName="stationeryQty" placeholder="Stationery Quantity">
+            <mat-form-field class="q2">
+                <input matInput name="fname" formControlName="stationeryDesc" placeholder="Stationery Description">
+            </mat-form-field>
 
-                <input type="text" class="t3" name="fname" formControlName="stationeryRemark" placeholder="Stationery Remark">
-            </div>
+            <button class="add" mat-raised-button color="warn" (click)="addRow()">Add Item</button>
+            <!-- <button class="add" mat-raised-button color="warn" (click)="updateData()">Update Item</button> -->
 
-            <div>
-
-
-                <input type="text" class="t1" name="fname" formControlName="stationeryDesc" placeholder="Stationery Description">
-
-                <select class="t2" placeholder="Stationery Status" formControlName="stationeryStatus">
-                    <option hidden value="" disabled selected>Stationery Status</option>
-                    <option *ngFor="let food of foods" [value]="food.value">
-                        {{food.viewValue}}
-                    </option>
-                </select>
-
-            </div>
-        </div>
-
-        <div>
-            <button class="add" mat-raised-button color="warn" (click)="addRow()">Add</button>
-            <!-- <button class="submit" mat-raised-button color="warn" (click)="reset()">Reset</button> -->
         </div>
 
     </form>
@@ -77,27 +74,24 @@
             <th>Stationery Id</th>
             <th>Stationery Name</th>
             <th>Stationery Quantity</th>
-            <th>Stationery Remark</th>
             <th>Stationery Description</th>
-            <th>Stationery Status</th>
-            <th>Stationery Order Status</th>
+            <th>Stationery Action</th>
 
 
-            <tr *ngFor="let item of listData; let i = index"> 
+            <tr *ngFor="let item of listData; let i = index">
                 <td><span>{{i+1}}</span></td>
                 <td><span>{{item.stationeryName}}</span></td>
                 <td><span>{{item.stationeryQty}}</span></td>
-                <td><span>{{item.stationeryRemark}}</span></td>
                 <td><span>{{item.stationeryDesc}}</span></td>
-                <td><span>{{item.stationeryStatus}}</span></td>
-                <!-- <td><span>{{item.stationeryOrderStatus}}</span></td> -->
                 <td>
-                    <mat-icon class="del1">delete</mat-icon>
+                    <mat-icon (click)="editDialog(item)" class="edit1" >edit</mat-icon>
                     <span class="vertical-line"></span>
-                    <mat-icon class="edit1">edit</mat-icon> 
+                    <mat-icon (click)="remove(item)" class="del1">delete</mat-icon>
                 </td>
             </tr>
         </table>
     </div>
-
 </div>
+
+<!-- </mat-sidenav-content> -->
+<!-- <app-stationery-request> </app-stationery-request>  -->

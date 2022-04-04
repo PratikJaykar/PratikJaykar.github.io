@@ -15,6 +15,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { SideNavComponent } from './Frontend/side-nav/side-nav.component';
 import { MatToolbarModule, MatMenuModule, MatDividerModule, MatSelectModule  } from '@angular/material';
+import { MatDialogModule } from '@angular/material';
+import { HttpClientModule } from '@angular/common/http';
+import { StationeryRequestComponent } from './Frontend/stationery-request/stationery-request.component';
+import { AuthService } from './service/auth-service';
+import { HomeComponent } from './Frontend/home/home/home.component';
+import { HomeLayoutComponent } from './Frontend/layout/home-layout/home-layout.component';
+import { LoginLayoutComponent } from './Frontend/layout/login-layout/login-layout.component';
+import { AuthGuardGuard } from './service/auth-guard.guard';
+// import { ModalModule } from "ngb-modal";
+// import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 
 
 @NgModule({
@@ -23,8 +33,13 @@ import { MatToolbarModule, MatMenuModule, MatDividerModule, MatSelectModule  } f
     LoginComponent,
     SuperAdminComponent,
     SideNavComponent,
+    StationeryRequestComponent,
+    HomeComponent,
+    HomeLayoutComponent,
+    LoginLayoutComponent,
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -39,9 +54,11 @@ import { MatToolbarModule, MatMenuModule, MatDividerModule, MatSelectModule  } f
     MatToolbarModule, 
     MatMenuModule, 
     MatDividerModule,
-    MatSelectModule
+    MatSelectModule,
+    MatDialogModule,
+    
   ],
-  providers: [],
+  providers: [AuthService,AuthGuardGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
